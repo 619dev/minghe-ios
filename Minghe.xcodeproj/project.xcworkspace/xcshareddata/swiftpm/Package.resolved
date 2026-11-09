@@ -1,0 +1,24 @@
+{
+  "originHash" : "a8ebffd25000f782ecfca15e047b20e29636c3eb0277d4d0de16978584242860",
+  "pins" : [
+    {
+      "identity" : "capacitor-swift-pm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ionic-team/capacitor-swift-pm.git",
+      "state" : {
+        "revision" : "2231987d85b8b0b289320b1d0947b4ae8345cde4",
+        "version" : "8.4.1"
+      }
+    },
+    {
+      "identity" : "linphone-sdk-swift-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/BelledonneCommunications/linphone-sdk-swift-ios.git",
+      "state" : {
+        "revision" : "452ede6e89b42217323a8da96b6db448662808c9",
+        "version" : "5.4.129"
+      }
+    }
+  ],
+  "version" : 3
+}

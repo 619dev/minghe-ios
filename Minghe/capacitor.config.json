@@ -1,0 +1,7 @@
+{
+  "appId": "app.fm619.minghe",
+  "appName": "Minghe",
+  "webDir": "public",
+  "server": { "iosScheme": "capacitor", "hostname": "localhost" },
+  "packageClassList": []
+}

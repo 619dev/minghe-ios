@@ -1,0 +1,26 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "NSMicrophoneUsageDescription": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "鸣鹤在 SIP 通话时使用麦克风传输您的语音。"
+          }
+        }
+      }
+    },
+    "NSLocalNetworkUsageDescription": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "鸣鹤需要访问本地网络，以连接位于局域网中的自建 SIP 服务器。"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

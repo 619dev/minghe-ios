@@ -1,0 +1,424 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03C40403A3285CDCC9F630C6 /* SIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F740A686C343834974E83C7 /* SIP.swift */; };
+		26A39864682F32EC6DC27729 /* linphonesw in Frameworks */ = {isa = PBXBuildFile; productRef = A97C1EAE55D9B744E5EF8EB5 /* linphonesw */; };
+		3788DBA572A287DEC7EE10B3 /* Capacitor in Frameworks */ = {isa = PBXBuildFile; productRef = DDB30DD770747DB1D35EF03E /* Capacitor */; };
+		3ACA80F985E7523CBE99A07C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 14679CA3AABAF18E8600E417 /* LICENSE */; };
+		523F7CF4C74B35766EC4A7C6 /* Cordova in Frameworks */ = {isa = PBXBuildFile; productRef = 81347222CAD850D0EA3AC183 /* Cordova */; };
+		6CAB8F5421071EF4537CFC33 /* capacitor.config.json in Resources */ = {isa = PBXBuildFile; fileRef = FF444CC0EDE22C85505C79D2 /* capacitor.config.json */; };
+		6FE95A39EB085307E5F8310C /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8DE9C791B56A050204C04D03 /* InfoPlist.xcstrings */; };
+		7F798C06A387AA0706141CE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70080DB051C4A7F333E20F3D /* Assets.xcassets */; };
+		9C1434A7731A5413826C3630 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D306D87CDB2B3F0BF84A4142 /* Foundation.framework */; };
+		AF93E5E08CC27A916BCFDB6D /* public in Resources */ = {isa = PBXBuildFile; fileRef = 3F5C469BAF9B04B4B47FE941 /* public */; };
+		BB6C2E81FECFB8CD7B850155 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 3D50961FC13FA84E896DF769 /* PrivacyInfo.xcprivacy */; };
+		CA4A03A1204F7CA514373BDA /* MingheApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11FAF8F4C4936066E66D8E0 /* MingheApp.swift */; };
+		E839E51785148DC0AFA26201 /* SipPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0831C7FBBB71872FFB686B /* SipPlugin.swift */; };
+		FE6C7230BCD528D1A4C650D9 /* Calling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144646BAB0D9244246A36383 /* Calling.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0A0831C7FBBB71872FFB686B /* SipPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SipPlugin.swift; sourceTree = "<group>"; };
+		144646BAB0D9244246A36383 /* Calling.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Calling.swift; sourceTree = "<group>"; };
+		14679CA3AABAF18E8600E417 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		215A2FFA2122115995F77B3B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D50961FC13FA84E896DF769 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		3F5C469BAF9B04B4B47FE941 /* public */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = public; sourceTree = "<group>"; };
+		5F740A686C343834974E83C7 /* SIP.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SIP.swift; sourceTree = "<group>"; };
+		6C40EC5F5DA4144215024EEC /* Minghe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minghe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		70080DB051C4A7F333E20F3D /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8DE9C791B56A050204C04D03 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; includeInIndex = 1; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		C11FAF8F4C4936066E66D8E0 /* MingheApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MingheApp.swift; sourceTree = "<group>"; };
+		D306D87CDB2B3F0BF84A4142 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		FF444CC0EDE22C85505C79D2 /* capacitor.config.json */ = {isa = PBXFileReference; includeInIndex = 1; path = capacitor.config.json; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A131E56341C869BF5EFA1145 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C1434A7731A5413826C3630 /* Foundation.framework in Frameworks */,
+				26A39864682F32EC6DC27729 /* linphonesw in Frameworks */,
+				3788DBA572A287DEC7EE10B3 /* Capacitor in Frameworks */,
+				523F7CF4C74B35766EC4A7C6 /* Cordova in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2FAD049669F5A0F87CC10C20 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A27E6FE10062E2A0229AB7C4 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		31A0775DC9C422B560E62DB6 /* Minghe */ = {
+			isa = PBXGroup;
+			children = (
+				C11FAF8F4C4936066E66D8E0 /* MingheApp.swift */,
+				5F740A686C343834974E83C7 /* SIP.swift */,
+				144646BAB0D9244246A36383 /* Calling.swift */,
+				70080DB051C4A7F333E20F3D /* Assets.xcassets */,
+				3D50961FC13FA84E896DF769 /* PrivacyInfo.xcprivacy */,
+				215A2FFA2122115995F77B3B /* Info.plist */,
+				8DE9C791B56A050204C04D03 /* InfoPlist.xcstrings */,
+				0A0831C7FBBB71872FFB686B /* SipPlugin.swift */,
+				FF444CC0EDE22C85505C79D2 /* capacitor.config.json */,
+				3F5C469BAF9B04B4B47FE941 /* public */,
+			);
+			name = Minghe;
+			path = Minghe;
+			sourceTree = "<group>";
+		};
+		A27E6FE10062E2A0229AB7C4 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D306D87CDB2B3F0BF84A4142 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		D98F8E719501138CCAD80C25 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6C40EC5F5DA4144215024EEC /* Minghe.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FBA0834306126F365F8F8C64 = {
+			isa = PBXGroup;
+			children = (
+				D98F8E719501138CCAD80C25 /* Products */,
+				2FAD049669F5A0F87CC10C20 /* Frameworks */,
+				31A0775DC9C422B560E62DB6 /* Minghe */,
+				14679CA3AABAF18E8600E417 /* LICENSE */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5A83EBB7FA62805CFCA79AB9 /* Minghe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B5ADAC3223D66C9F1ED7D40 /* Build configuration list for PBXNativeTarget "Minghe" */;
+			buildPhases = (
+				A0A4FA491E17CAE0C397F12D /* Sources */,
+				A131E56341C869BF5EFA1145 /* Frameworks */,
+				C24C29AA284566DB2C274A71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Minghe;
+			packageProductDependencies = (
+				A97C1EAE55D9B744E5EF8EB5 /* linphonesw */,
+				DDB30DD770747DB1D35EF03E /* Capacitor */,
+				81347222CAD850D0EA3AC183 /* Cordova */,
+			);
+			productName = Minghe;
+			productReference = 6C40EC5F5DA4144215024EEC /* Minghe.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0C5BDBB5587135D39A6CE22A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					5A83EBB7FA62805CFCA79AB9 = {
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 5272BD9AF6B7CA0214DA893C /* Build configuration list for PBXProject "Minghe" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = FBA0834306126F365F8F8C64;
+			minimizedProjectReferenceProxies = 0;
+			packageReferences = (
+				3408B3B430D4A4A749121764 /* XCRemoteSwiftPackageReference "linphone-sdk-swift-ios" */,
+				76D3F65927525577FB7C9A5D /* XCRemoteSwiftPackageReference "capacitor-swift-pm" */,
+			);
+			preferredProjectObjectVersion = 100;
+			productRefGroup = D98F8E719501138CCAD80C25 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5A83EBB7FA62805CFCA79AB9 /* Minghe */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C24C29AA284566DB2C274A71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F798C06A387AA0706141CE2 /* Assets.xcassets in Resources */,
+				BB6C2E81FECFB8CD7B850155 /* PrivacyInfo.xcprivacy in Resources */,
+				6FE95A39EB085307E5F8310C /* InfoPlist.xcstrings in Resources */,
+				3ACA80F985E7523CBE99A07C /* LICENSE in Resources */,
+				6CAB8F5421071EF4537CFC33 /* capacitor.config.json in Resources */,
+				AF93E5E08CC27A916BCFDB6D /* public in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A0A4FA491E17CAE0C397F12D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA4A03A1204F7CA514373BDA /* MingheApp.swift in Sources */,
+				03C40403A3285CDCC9F630C6 /* SIP.swift in Sources */,
+				FE6C7230BCD528D1A4C650D9 /* Calling.swift in Sources */,
+				E839E51785148DC0AFA26201 /* SipPlugin.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5E0BD3BE8836252E44070B3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = Minghe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.fm619.minghe;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7C6600488A84E05AFDA7A34F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		B43AEA6C72A170800D091A26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = Minghe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.fm619.minghe;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C3A6BEC165236C83604D3CB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0B5ADAC3223D66C9F1ED7D40 /* Build configuration list for PBXNativeTarget "Minghe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E0BD3BE8836252E44070B3D /* Release */,
+				B43AEA6C72A170800D091A26 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5272BD9AF6B7CA0214DA893C /* Build configuration list for PBXProject "Minghe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3A6BEC165236C83604D3CB4 /* Debug */,
+				7C6600488A84E05AFDA7A34F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3408B3B430D4A4A749121764 /* XCRemoteSwiftPackageReference "linphone-sdk-swift-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BelledonneCommunications/linphone-sdk-swift-ios.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.4.129;
+			};
+		};
+		76D3F65927525577FB7C9A5D /* XCRemoteSwiftPackageReference "capacitor-swift-pm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ionic-team/capacitor-swift-pm.git";
+			requirement = {
+				kind = exactVersion;
+				version = 8.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		81347222CAD850D0EA3AC183 /* Cordova */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 76D3F65927525577FB7C9A5D /* XCRemoteSwiftPackageReference "capacitor-swift-pm" */;
+			productName = Cordova;
+		};
+		A97C1EAE55D9B744E5EF8EB5 /* linphonesw */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3408B3B430D4A4A749121764 /* XCRemoteSwiftPackageReference "linphone-sdk-swift-ios" */;
+			productName = linphonesw;
+		};
+		DDB30DD770747DB1D35EF03E /* Capacitor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 76D3F65927525577FB7C9A5D /* XCRemoteSwiftPackageReference "capacitor-swift-pm" */;
+			productName = Capacitor;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 0C5BDBB5587135D39A6CE22A /* Project object */;
+}
