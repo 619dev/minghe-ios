@@ -119,7 +119,11 @@ final class SIP {
         core.pushNotificationEnabled = false
         core.verifyServerCertificates(yesno: true)
         core.verifyServerCn(yesno: true)
+#if targetEnvironment(simulator)
+        core.callkitEnabled = false
+#else
         core.callkitEnabled = true
+#endif
         core.limeX3DhEnabled = false
         core.keepAliveEnabled = true
         core.ipv6Enabled = false

@@ -50,13 +50,21 @@ final class Calling: NSObject, ObservableObject, CXProviderDelegate {
         configuration.includesCallsInRecents = false
         provider = CXProvider(configuration: configuration)
         super.init()
-        provider.setDelegate(self, queue: .main)
+        if usesCallKit { provider.setDelegate(self, queue: .main) }
         if let data = defaults.data(forKey: "account"),
            let saved = try? JSONDecoder().decode(SIPSettings.self, from: data) {
             settings = saved
         }
         loadHistory()
         defaults.removeObject(forKey: "voipToken")
+    }
+
+    private var usesCallKit: Bool {
+#if targetEnvironment(simulator)
+        false
+#else
+        true
+#endif
     }
 
     private func loadHistory() {
@@ -143,7 +151,7 @@ final class Calling: NSObject, ObservableObject, CXProviderDelegate {
     func disconnect() {
         defaults.set(false, forKey: "online")
         if let id = current?.id {
-            provider.reportCall(with: id, endedAt: nil, reason: .failed)
+            if usesCallKit { provider.reportCall(with: id, endedAt: nil, reason: .failed) }
             finish()
         }
         stopSIP()
@@ -193,6 +201,14 @@ final class Calling: NSObject, ObservableObject, CXProviderDelegate {
         guard current == nil else { return }
         let id = UUID()
         current = CallRecord(id: id, peer: peer, incoming: false)
+        if !usesCallKit {
+            do { try startOutgoing(peer, id: id) }
+            catch {
+                if current?.id == id { finish() }
+                self.error = error.localizedDescription
+            }
+            return
+        }
         request(CXStartCallAction(call: id, handle: CXHandle(type: .generic, value: peer))) { [weak self] in
             guard self?.current?.id == id else { return }
             self?.finish()
@@ -207,12 +223,21 @@ final class Calling: NSObject, ObservableObject, CXProviderDelegate {
             return
         }
         guard current?.id == id else { return }
-        request(CXAnswerCallAction(call: id))
+        if usesCallKit {
+            request(CXAnswerCallAction(call: id))
+        } else {
+            do { try acceptIncoming() }
+            catch {
+                self.error = error.localizedDescription
+                failIncoming(id: id, reason: .failed)
+            }
+        }
     }
 
     func hangUp() {
         guard let id = current?.id else { return }
-        request(CXEndCallAction(call: id))
+        if usesCallKit { request(CXEndCallAction(call: id)) }
+        else { endCurrentCall() }
     }
 
     func toggleMute() {
@@ -245,13 +270,10 @@ final class Calling: NSObject, ObservableObject, CXProviderDelegate {
     }
 
     func provider(_ provider: CXProvider, perform action: CXStartCallAction) {
-        guard current?.id == action.callUUID, let sip else { action.fail(); return }
-        sip.core.configureAudioSession()
-        prepareMicrophone()
+        guard current?.id == action.callUUID, sip != nil else { action.fail(); return }
         provider.reportOutgoingCall(with: action.callUUID, startedConnectingAt: nil)
         do {
-            let outgoing = try sip.dial(action.handle.value)
-            if current?.id == action.callUUID { call = outgoing }
+            try startOutgoing(action.handle.value, id: action.callUUID)
             action.fulfill()
         } catch {
             action.fail()
@@ -265,17 +287,15 @@ final class Calling: NSObject, ObservableObject, CXProviderDelegate {
 
     func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
         guard current?.id == action.callUUID, current?.incoming == true,
-              let sip, let call, call.state == .IncomingReceived else { action.fail(); return }
+              sip != nil, let call, call.state == .IncomingReceived else { action.fail(); return }
         guard AVAudioApplication.shared.recordPermission == .granted else {
             action.fail()
             error = String(localized: "Allow microphone access in Settings to answer calls.")
             failIncoming(id: action.callUUID, reason: .failed)
             return
         }
-        sip.core.configureAudioSession()
-        prepareMicrophone()
         do {
-            try call.acceptWithParams(params: sip.callParameters(call))
+            try acceptIncoming()
             action.fulfill()
         } catch {
             action.fail()
@@ -285,11 +305,39 @@ final class Calling: NSObject, ObservableObject, CXProviderDelegate {
 
     func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
         guard current?.id == action.callUUID else { action.fulfill(); return }
+        endCurrentCall()
+        action.fulfill()
+    }
+
+    private func startOutgoing(_ peer: String, id: UUID) throws {
+        guard let sip else { throw PhoneError.notRegistered }
+        try configureCallAudio()
+        let outgoing = try sip.dial(peer)
+        if current?.id == id { call = outgoing }
+    }
+
+    private func acceptIncoming() throws {
+        guard let sip, let call, call.state == .IncomingReceived else { throw PhoneError.callFailed }
+        try configureCallAudio()
+        try call.acceptWithParams(params: sip.callParameters(call))
+    }
+
+    private func configureCallAudio() throws {
+        sip?.core.configureAudioSession()
+        if !usesCallKit {
+            let session = AVAudioSession.sharedInstance()
+            try session.setCategory(.playAndRecord, mode: .voiceChat)
+            try session.setActive(true)
+            audioActive = true
+        }
+        prepareMicrophone()
+    }
+
+    private func endCurrentCall() {
         let active = call
-        finish()
         if active?.state == .IncomingReceived { try? active?.decline(reason: .Declined) }
         else { try? active?.terminate() }
-        action.fulfill()
+        if current != nil { finish() }
     }
 
     func provider(_ provider: CXProvider, perform action: CXSetMutedCallAction) {
@@ -334,10 +382,10 @@ final class Calling: NSObject, ObservableObject, CXProviderDelegate {
         case .Connected, .StreamsRunning:
             if current?.answered == false {
                 current?.answered = true
-                if current?.incoming == false { provider.reportOutgoingCall(with: id, connectedAt: nil) }
+                if usesCallKit, current?.incoming == false { provider.reportOutgoingCall(with: id, connectedAt: nil) }
             }
         case .End, .Error, .Released:
-            provider.reportCall(with: id, endedAt: nil, reason: state == .Error ? .failed : .remoteEnded)
+            if usesCallKit { provider.reportCall(with: id, endedAt: nil, reason: state == .Error ? .failed : .remoteEnded) }
             finish()
         default: break
         }
@@ -352,6 +400,7 @@ final class Calling: NSObject, ObservableObject, CXProviderDelegate {
         let record = CallRecord(peer: peer, incoming: true)
         current = record
         call = incoming
+        guard usesCallKit else { return }
         provider.reportNewIncomingCall(with: record.id, update: update(peer)) { [weak self] error in
             guard error != nil else { return }
             DispatchQueue.main.async {
@@ -373,7 +422,7 @@ final class Calling: NSObject, ObservableObject, CXProviderDelegate {
     private func failIncoming(id: UUID, reason: CXCallEndedReason) {
         guard current?.id == id else { return }
         let active = call
-        provider.reportCall(with: id, endedAt: nil, reason: reason)
+        if usesCallKit { provider.reportCall(with: id, endedAt: nil, reason: reason) }
         finish()
         try? active?.terminate()
     }
@@ -390,6 +439,10 @@ final class Calling: NSObject, ObservableObject, CXProviderDelegate {
         verified = false
         muted = false
         mediaEncrypted = false
+        if !usesCallKit, audioActive {
+            audioActive = false
+            try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+        }
         prepareMicrophone()
         DispatchQueue.main.async { [weak self] in self?.suspendIdleSIP() }
     }
